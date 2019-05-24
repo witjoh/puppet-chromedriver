@@ -11,7 +11,8 @@ class chromedriver::install (
   Stdlib::Httpurl      $source      = $::chromedriver::params::source,
 ) inherits ::chromedriver::params {
 
-  $packages = ['libgconf2-dev', 'libxi-dev', 'unzip', 'libnss3-dev']
+  #$packages = ['libgconf2-dev', 'libxi-dev', 'unzip', 'libnss3-dev']
+  $packages = ['unzip']
   ensure_packages($packages, {'ensure' => 'present'})
 
   $latest = chromedriver::fetch_latest_version($source)
